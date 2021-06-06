@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capthca</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var arr=[];
+
+            var imgs = [
+                '1.PNG',
+                '2.PNG',
+                '3.PNG',
+                '4.PNG',
+                '5.PNG',
+                '6.PNG',
+                '7.PNG',
+                '8.PNG',
+                '9.PNG',
+                '11.PNG',
+                '22.PNG',
+                '33.PNG',
+                '44.PNG',
+                '55.PNG',
+                '66.PNG',
+                '77.PNG',
+                '88.PNG',
+                '99.PNG'
+            ];
+            
+            var im1 = imgs[Math.floor(Math.random()*imgs.length)];
+            var im2 = imgs[Math.floor(Math.random()*imgs.length)];
+
+            var image1 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image2 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image3 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image4 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image5 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image6 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image7 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image8 = imgs[Math.floor(Math.random()*imgs.length)];
+            var image9 = imgs[Math.floor(Math.random()*imgs.length)];
+
+            var images = [image1,image2,image3,image4,image5,image6,image7,image8,image9];
+            
+
+        function cap()
+        {
+            
+            
+
+            document.getElementById("im1").src = im1;
+            document.getElementById("im2").src=im2;
+            
+            document.getElementById("img1").src=image1;
+            document.getElementById("img2").src=image2;
+            document.getElementById("img3").src=image3;
+            document.getElementById("img4").src=image4;
+            document.getElementById("img5").src=image5;
+            document.getElementById("img6").src=image6;
+            document.getElementById("img7").src=image7;
+            document.getElementById("img8").src=image8;
+            document.getElementById("img9").src=image9;
+            
+        }
+
+            function verify()
+            {
+              var num1 = im1.charAt(0);
+              var num2 = im2.charAt(0);
+                var a = document.getElementById('answer').value;
+                var a1 = num1-1;
+                var a2 = num2-1;
+
+                var img1 = images[a1];
+                var img2 = images[a2];
+                
+                var number1 = img1.charAt(0);
+                var number2 = img2.charAt(0);
+                var total = parseInt(number1)+parseInt(number2);
+                if(a==total)
+                {
+                    alert("Success");
+                    var button = document.getElementById("log");
+                    button.disabled=false;
+                    
+                }
+                else
+                {
+                    alert("Incorrect Answer");
+                }
+                
+            }
+            
+            
+      function lod() 
+      {
+          var passs = document.getElementById("in").value;
+          arr.push(passs);
+          document.getElementById("in").value="";    
+      }
+      
+      function show() 
+      {
+        
+        var array = arr.join("");
+        alert("Your Password: "+array);
+      }
+ 
+    </script>
+    <style>
+      body{
+        align-items: center;
+      }
+      img{
+        height: 50px;
+      }
+      td
+      {
+        width: auto;
+      }
+      .class
+      {
+        position: relative;
+        left: 30%;
+        top: 20%;
+      }
+    </style>
+</head>
+<body onload="cap()">
+  <h1 style="text-align: center;" id="mess"></h1>
+    <div class="class">
+      <br>
+    <br>
+        
+            <label for="user">Username</label>
+        <input type="text" name="" id="user" placeholder="enter user name" required><br><br>
+        <label for="pass">Password</label>
+        
+        <input type="password" name="" id="in" oninput="lod()" placeholder="enter password"><br><br>
+        <button onclick="show()">Verify Password</button>
+        
+        <br><br>
+        <table border="2px">
+        <tr><td colspan="3"><h1 id="ques">Captcha: <img src="" alt="" id="im2" style="height: 50px;"> + <img src="" alt="" id="im1" style="height: 50px;"></h1><button onclick=location.reload()>refresh</button></td></tr>
+        <tr>
+            <td><img alt="nothing" id="img1"></td>
+            <td><img  alt="nothing" id="img2"></td>
+            <td><img  alt="nothing" id="img3"></td>
+        </tr>
+        <tr>
+            <td><img  alt="nothing" id="img4"></td>
+            <td><img  alt="nothing" id="img5"></td>
+            <td><img  alt="nothing" id="img6"></td>
+        </tr>
+        <tr>
+            <td><img  alt="nothing" id="img7"></td>
+            <td><img  alt="nothing" id="img8"></td>
+            <td><img  alt="nothing" id="img9"></td>
+        </tr>
+        <tr><td colspan="3" align="center"><input type="number" name="" id="answer" placeholder="enter captcha answer here" style="background-color: aquamarine; color: black;"></td></tr>
+        <tr><td colspan="3"><button onclick="verify()" id="btn" style="width: 100%; height: 30px; background-color: rgb(174, 211, 243);">Verify</button>
+        <tr><td colspan="3"><input type="submit" value="Login" id="log" onclick="alert('Login successfully')" disabled style="width: 100%; height: 30px; background-color: rgb(174, 211, 243);"></td></tr>
+    </table>
+    </div>
+</body>
+</html>
